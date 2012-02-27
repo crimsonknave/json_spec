@@ -106,4 +106,8 @@ describe JsonSpec::Matchers::BeJsonEql do
     JsonSpec.directory = files_path
     %({ "value" : "from_file" }).should be_json_eql.to_file("one.json")
   end
+
+  it "should match null to nil" do
+    %(null).should be_json_eql(nil)
+  end
 end

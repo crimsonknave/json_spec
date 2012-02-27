@@ -11,12 +11,11 @@ module JsonSpec
         true
       end
 
-      def initialize(expected_json = nil)
+      def initialize(expected_json)
         @expected_json = expected_json
       end
 
       def matches?(actual_json)
-        raise "Expected equivalent JSON not provided" if @expected_json.nil?
 
         @actual, @expected = scrub(actual_json, @path), scrub(@expected_json)
         @actual == @expected
